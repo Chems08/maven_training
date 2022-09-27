@@ -3,7 +3,6 @@ package fr.lernejo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SampleTest {
     @Test
@@ -15,8 +14,10 @@ class SampleTest {
     @Test
     void fact() {
         Sample sample = new Sample();
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> sample.fact(-1));
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(()-> sample.fact(-1));
+        Assertions.assertThat(sample.fact(5)).isEqualTo(120);
+        Assertions.assertThat(sample.fact(0)).isEqualTo(1);
+        Assertions.assertThat(sample.fact(1)).isEqualTo(1);
     }
-
 
 }
